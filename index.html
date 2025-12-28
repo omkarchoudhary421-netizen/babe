@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>For Kitty — from Omkar</title>
+<style>
+  :root{
+    --pink1:#ffdee9;
+    --pink2:#ffc0cb;
+    --pink3:#ffb6c1;
+    --accent:#ff4f7d;
+    --text:#fff7fb;
+    --card:#1b1420;
+  }
+  html,body{
+    margin:0; padding:0; height:100%; width:100%;
+    background: radial-gradient(1200px 800px at 15% 0%, var(--pink1), var(--pink2), var(--pink3));
+    color:var(--text); font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    overflow-x:hidden;
+  }
+  /* floating roses */
+  #roses span{
+    position:fixed; font-size:26px; filter: drop-shadow(0 2px 4px rgba(255,79,125,0.35));
+    animation: float 7s ease-in-out infinite;
+    opacity:0.9;
+  }
+  @keyframes float{
+    0%,100%{ transform:translateY(0) }
+    50%{ transform:translateY(-14px) }
+  }
+
+  .container{ max-width:900px; margin:0 auto; padding:20px 16px 80px; }
+  .block{
+    background: rgba(27,20,32,0.35);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 14px 0;
+    backdrop-filter: blur(3px);
+  }
+  p{ margin:10px 0; line-height:1.7; }
+  .typing{
+    display:inline-block; border-right:2px solid var(--text);
+    white-space:nowrap; overflow:hidden;
+    animation: typing 5.2s steps(60,end), blink 0.8s step-end infinite;
+  }
+  @keyframes typing{ from{ width:0 } to{ width:100% } }
+  @keyframes blink{ 50%{ border-color:transparent } }
+
+  .center{ text-align:center; }
+  .big{ font-size:1.6rem; letter-spacing:0.2px; }
+  .btn{
+    display:inline-block; margin-top:10px; padding:10px 16px; border:none; border-radius:999px;
+    background: var(--accent); color:#fff; font-size:0.98rem; cursor:pointer;
+    box-shadow:0 8px 18px rgba(255,79,125,0.35);
+  }
+  .row{ display:flex; gap:12px; flex-wrap:wrap; }
+  .card{
+    flex:1 1 280px;
+    background: rgba(27,20,32,0.55);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:14px; padding:12px;
+  }
+  .meme img{ width:100%; height:200px; object-fit:cover; border-radius:10px; }
+  .note{
+    background: rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:12px; padding:12px;
+  }
+  .photo{ width:120px; height:120px; object-fit:cover; border-radius:12px; border:2px solid rgba(255,255,255,0.2); }
+  .final-love{
+    text-align:center; font-size:2.2rem; color:#eafff6;
+    text-shadow:0 4px 14px rgba(0,0,0,0.25);
+    margin:20px 0 6px;
+  }
+
+  /* fireworks overlay */
+  #fireworks{ position:fixed; inset:0; display:none; pointer-events:none; }
+  canvas{ position:absolute; inset:0; }
+  #playMusicBtn{
+    position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+    background: var(--accent); color:#fff; border:none; border-radius:999px;
+    padding:10px 18px; cursor:pointer; box-shadow:0 8px 18px rgba(255,79,125,0.35);
+    z-index:10;
+  }
+</style>
+</head>
+<body>
+
+<!-- infinite roses -->
+<div id="roses"></div>
+
+<div class="container">
+
+  <!-- new year greeting -->
+  <div class="block center">
+    <div class="big typing">Happy New Year, Kitty ✨</div>
+    <p>01 January — naye saal ki roshni mein, mere dil ka sabse sachcha note tumhare liye.</p>
+    <button id="playMusicBtn">Play music 🎵</button>
+  </div>
+
+  <!-- simple roses strip -->
+  <div class="block center">
+    <p>For every purr, a petal. For every chord, a bloom. For every glance, a garden.</p>
+    <div aria-hidden="true">
+      🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹
+    </div>
+  </div>
+
+  <!-- long proposal with CA-flirting vibes -->
+  <div class="block">
+    <p>Kitty, ek mahina hua hai aur har baat mein tumhari halka sa jadoo reh jaata hai. Tumhari awaaz itni soothing hai ki din ki saari tension audit ho ke khatam ho jaati hai. Tumhari aankhen—bilkul heaven—jahan dekhkar lagta hai ki life ka balance sheet bhi smile kar raha hai. Hum dono CA kar rahe hain, toh sach boloon: mere feelings ka true and fair view tum ho. Going concern ho tum meri zindagi ka—aur main zero window dressing ke saath honest disclosure kar raha hoon.</p>
+    <p>Debit: tumhari warmth, Credit: meri muskurahat—entry har din perfectly reconcile ho jaati hai jab tum ho. Matching principle ke hisaab se, mere efforts ka objective tumhari khushi hai, har period mein. Cash flow from love? Operating strong, investing in togetherness, financing with forever. Auditor’s report on us? Unqualified opinion—no doubts, only clarity.</p>
+    <p>Chai ke saath tumhari guitar, aur meri aankhon mein wohi kahaani: main tumhe pasand karta hoon, aur main tumse pyaar karta hoon. Agar feelings par GST hota, toh rate zero hota—par tumhare hugs par full input credit lagta. Bas tumhari ek pyaari “meow” aur poora din ka ROI infinite ho jaata hai.</p>
+  </div>
+
+  <!-- two light memes, Indian Instagram vibe -->
+  <div class="row">
+    <div class="card meme">
+      <img src="https://i.imgur.com/3ZQ3ZzY.jpeg" alt="Indian meme style — CA life humor" />
+      <p>“Coffee is capital, sleep is expense — par tumhari smile ka goodwill infinite.”</p>
+    </div>
+    <div class="card meme">
+      <img src="https://i.imgur.com/0oZK1yS.jpeg" alt="Indian meme style — Accounts love joke" />
+      <p>“Trial Balance: matched. Feelings: unmatched… until Kitty enters the ledger.”</p>
+    </div>
+  </div>
+
+  <!-- 200-word Bollywood-style love letter (Hindi) -->
+  <div class="block">
+    <p>
+      Suhana, ek januwari ki subah hai, hawa mein nayi umeedein hain, aur mere dil mein tum. Jab tumhari awaaz phone par halki si muskurahat ke saath aati hai, lagta hai jaise duniya ki saari ghoomtaani ruk gayi ho. Tumhari aankhen — bilkul jannat ki dehleez — jahan thodi si roshni bas jaati hai aur har gham dissolve ho jaata hai. Main Omkar, ek seedha-sa ladka, tumhari har chhoti baat mein apni badi khushi dhoondh leta hoon. Jaise SRK ke scene mein baarish ke beech hero sirf ek chehra dekhkar saari kahani samajh jaata hai, vaise hi main tumhe dekhkar samajh leta hoon ki life ki script ko sirf tum complete karti ho.
+    </p>
+    <p>
+      Tumhari guitar ke suron mein meri raaton ka sukoon hai, tumhare billi pyaar mein meri hasi. CA ke audits, tax dates, provisions — sab theek lagte hain jab tumhari yaad aati hai. Dil ka trial balance tabhi match hota hai jab tum meri entry ban jaati ho. Agar tum haan kaho, toh main zindagi bhar tumhara honest balance sheet bankar rahunga — bina kisi window dressing, bina kisi masking. Aur agar kabhi tumhari aankhon mein aansu aaye, toh mera kandha wahi hoga — filmy par sachcha. Yeh Omkar ka wada hai, dil se, tumhare liye — har saal, har mahina, har din.
+    </p>
+  </div>
+
+  <!-- gentle roses and music note -->
+  <div class="block center">
+    <p class="typing">Mere har kal ka footnote tum ho 🌹</p>
+    <p>Thoda patience, thoda pyaar, aur sab kuch perfect ho jaata hai.</p>
+  </div>
+
+  <!-- puku's sweet note with photo -->
+  <div class="block">
+    <div class="row" style="align-items:center;">
+      <img class="photo" src="https://i.imgur.com/8qzXb7R.jpeg" alt="Puku photo" />
+      <div class="note">
+        <p>Dear Kitty Bhabhi, mera naam Puku hai. Mujhe aapki muskurahat bohot pasand aayi — bilkul meri favorite toffee jaisi. Bhai (Omkar) ke saath aap bohot achchi lagti ho. Aap jab guitar bajati ho, main dance karunga! Aap hamesha khush raho, aur hum sab milke bohot saare fun moments banayein. Happy New Year, Bhabhi! Lots of love — Puku.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- final ask: I love you + funny accounts-style ask -->
+  <div class="block center">
+    <div class="final-love">I love you, Kitty.</div>
+    <p class="typing">Will you be my girlfriend? (Trial Balance of Love: Debit = Omkar, Credit = Kitty)</p>
+    <div style="margin-top:10px;">
+      <button class="btn" id="yesBtn">Yes ✅</button>
+      <button class="btn" id="noBtn" style="background:#5b5b7a;">No ❌</button>
+    </div>
+  </div>
+
+  <!-- playful follow-up if "No" -->
+  <div class="block center" id="noFollow" style="display:none;">
+    <p class="typing">Baby maan jao… kitna bhao kha rhi ho 😘</p>
+    <p>Ek baar haan bol do, ledger of love permanently balance ho jayega.</p>
+    <button class="btn" id="backBtn">Okay, back ↩️</button>
+  </div>
+
+</div>
+
+<!-- fireworks overlay -->
+<div id="fireworks"><canvas id="fwCanvas"></canvas></div>
+
+<!-- audio: background + fireworks sound -->
+<audio id="bgmusic" preload="none" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+</audio>
+<audio id="boom" preload="none">
+  <source src="https://www.soundjay.com/mechanical/sounds/firework-explosion-1.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+  // infinite roses
+  (function makeRoses(){
+    const wrap = document.getElementById("roses");
+    for(let i=0;i<50;i++){
+      const s = document.createElement("span");
+      s.textContent = "🌹";
+      s.style.left = Math.random()*100 + "%";
+      s.style.top  = Math.random()*100 + "%";
+      s.style.animationDelay = (Math.random()*3).toFixed(2) + "s";
+      wrap.appendChild(s);
+    }
+  })();
+
+  // background music (must start on user click)
+  const bg = document.getElementById("bgmusic");
+  document.getElementById("playMusicBtn").addEventListener("click", async ()=>{
+    try{
+      await bg.play();
+      document.getElementById("playMusicBtn").style.display="none";
+    }catch(e){
+      alert("Tap again to play (browser blocked autoplay).");
+    }
+  });
+
+  // yes/no interaction
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn  = document.getElementById("noBtn");
+  const noFollow = document.getElementById("noFollow");
+  const backBtn = document.getElementById("backBtn");
+
+  yesBtn.addEventListener("click", ()=>{
+    startFireworks(true);
+    // cute cat celebration gif
+    const cat = document.createElement("img");
+    cat.src = "https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif";
+    cat.style.position="fixed"; cat.style.bottom="24px"; cat.style.right="24px";
+    cat.style.width="160px"; cat.style.borderRadius="12px"; cat.style.zIndex="20";
+    document.body.appendChild(cat);
+    setTimeout(()=>{
+      stopFireworks();
+      alert("Yay Kitty! You said YES ❤️🎆 Our love story just got its happiest chapter!");
+      cat.remove();
+    },6000);
+  });
+
+  noBtn.addEventListener("click", ()=>{
+    noFollow.style.display="block";
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  });
+
+  backBtn.addEventListener("click", ()=>{
+    noFollow.style.display="none";
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  });
+
+  // fireworks engine
+  const fw = document.getElementById("fireworks");
+  const canvas = document.getElementById("fwCanvas");
+  const ctx = canvas.getContext("2d");
+  const boom = document.getElementById("boom");
+  let particles = [];
+  let interval, raf;
+
+  function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  function startFireworks(withSound=false){
+    fw.style.display="block";
+    interval = setInterval(()=>createFirework(withSound), 800);
+    draw();
+  }
+  function stopFireworks(){
+    fw.style.display="none";
+    clearInterval(interval);
+    cancelAnimationFrame(raf);
+    particles = [];
+  }
+
+  function createFirework(withSound){
+    const x = Math.random()*canvas.width;
+    const y = Math.random()*canvas.height*0.6;
+    if(withSound){
+      boom.currentTime = 0;
+      boom.play().catch(()=>{});
+    }
+    for(let i=0;i<120;i++){
+      const angle = (Math.PI*2*i)/60;
+      const speed = Math.random()*3 + 1;
+      particles.push({
+        x, y,
+        vx: Math.cos(angle)*speed,
+        vy: Math.sin(angle)*speed,
+        life: 100
+      });
+    }
+  }
+
+  function draw(){
+    ctx.fillStyle = "rgba(0,0,0,0.25)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    for(let i=particles.length-1;i>=0;i--){
+      const p = particles[i];
+      ctx.fillStyle = `hsl(${Math.random()*360},100%,60%)`;
+      ctx.fillRect(p.x, p.y, 2, 2);
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.012; // slight gravity
+      p.life -= 1;
+      if(p.life<=0){ particles.splice(i,1); }
+    }
+    raf = requestAnimationFrame(draw);
+  }
+</script>
+</body>
+</html>
